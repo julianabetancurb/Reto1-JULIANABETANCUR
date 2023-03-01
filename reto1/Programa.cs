@@ -36,7 +36,7 @@ class Programa
                     if (verificar.verificar_conectores(invitado))
                     {
                         Console.WriteLine("La persona se encuentra registrada y cumple con los requisitos");
-                        int Id_ = program.ingresar_id();
+                        int Id_ = main.ingresar_id();
                         validar_invitado(Id_);
 
                     }

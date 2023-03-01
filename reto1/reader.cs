@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
         abstract class Reader //clase padre
         {   
-            public List<Invitado> list_invitados = new List<Invitado>();
+            public List<Invitado> list_invitados = new List<Invitado>(); //lista donde se almacenan los datos del TXT
             public abstract void lector(string ruta); 
         }
         class ReaderTXT: Reader 
