@@ -14,10 +14,10 @@
             email = Email_;
             id = Id_;
         }
-        public string Nombre
+        public string Nombre //definición de setters y getters
         {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return nombre; } // retorna la variable
+            set { nombre = value; } //asigna el valor almacenado a la variable
         }
         public int Edad
         {

@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 class program
 {
     public static void Main(string[] args)
-    { }
+    { 
+        Programa programa= new Programa();  
+
+    }
 
         public static int ingresar_id()
         {

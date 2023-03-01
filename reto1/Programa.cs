@@ -36,15 +36,32 @@ class Programa
                     if (verificar.verificar_conectores(invitado))
                     {
                         Console.WriteLine("La persona se encuentra registrada y cumple con los requisitos");
-                        int Id_ = Program.ingresar_id();
+                        int Id_ = program.ingresar_id();
                         validar_invitado(Id_);
 
-
                     }
+                    else
+                    { throw new CorreoInvalidoException();  }
+
+
+
                 }
+                else { throw new InvitadoMenorEdadException(); }
             }
+            else {  throw new InvitadoNoRegistradoException(); }
         }
-        catch { }
+        catch (CorreoInvalidoException)
+        {
+            Console.WriteLine("El correo registrado es incorrecto");
+        }
+        catch (InvitadoMenorEdadException)
+        {
+            Console.WriteLine("El invitado es menor de edad");
+        }
+        catch (InvitadoNoRegistradoException)
+        {
+            Console.WriteLine("El invitado no está registrado");
+        }
     } 
 
 }
