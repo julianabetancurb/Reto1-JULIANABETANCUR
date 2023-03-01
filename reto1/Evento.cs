@@ -4,27 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class Programa
+class Evento
 {
-    public Reader lector;
-    public Verificar verificar = new Verificar();
+    public Reader lector_;                       //crear metodo de tipo clase Reader
+    public Verificar verificar = new Verificar(); //llama a clase Verificar
 
-    public void leer_archivo(string ruta)
+    public string leer_archivo(string direccion)
     {
-        lector = new ReaderTXT();
+        if (direccion.Contains(".txt"))
+        {
+            lector_ = new ReaderTXT();
+            return direccion;
+        }
+        else { return null; }
+        
       
     }
     public Invitado buscar_invitado(int id)
     {
-        foreach (Invitado invitado in lector.list_invitados)
+        foreach (Invitado invitado in lector_.list_invitados) //itera sobre los elementos de tipo Invitado de la lista invitados
         {
             if (invitado.Id == id)
                 return invitado;
         }
         return null;
     }
+   public void correr(string direccion)  
+    {
+        lector_.lector(direccion);
+    }
  
-    public void validar_invitado(int id)
+    public void validar_invitado(int id)  //usa los metodos de la clase Verificar y lanza excepciones creadas
     {
         Invitado invitado= buscar_invitado(id); 
         try
@@ -63,6 +73,11 @@ class Programa
             Console.WriteLine("El invitado no está registrado");
         }
     } 
+    public void print_lista(Invitado invitado)
+    {
+
+
+    }
 
 }
 

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class CorreoInvalidoException : Exception
 {
@@ -27,5 +23,13 @@ public class InvitadoNoRegistradoException : Exception
     public InvitadoNoRegistradoException(string message) : base(message)
     {
         Console.WriteLine(message); 
+    }
+}
+public class EdadInvalidaException : Exception
+{
+    public EdadInvalidaException() : base() { }
+    public EdadInvalidaException(string message) : base(message)
+    {
+        Console.WriteLine(message);
     }
 }

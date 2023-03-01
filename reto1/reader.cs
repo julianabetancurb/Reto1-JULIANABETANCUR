@@ -5,9 +5,12 @@ using System.Linq.Expressions;
 
 
         abstract class Reader //clase padre
-        {   
-            public List<Invitado> list_invitados = new List<Invitado>(); //lista donde se almacenan los datos del TXT
+        {
+            //lista donde se almacenan los datos del TXT
+            public List<Invitado> list_invitados = new List<Invitado>();
+            
             public abstract void lector(string ruta); 
+
         }
         class ReaderTXT: Reader 
         {
@@ -15,19 +18,19 @@ using System.Linq.Expressions;
         {
             try
             {
-            StreamReader sr = new StreamReader("C:\\Users\\DIANA\\Downloads\\Taller_herencia.txt");
-            sr.BaseStream.Seek(0, SeekOrigin.Begin);
+            StreamReader sr = new StreamReader(ruta);
+            sr.BaseStream.Seek(0, SeekOrigin.Begin); //ubica en una posición especifica a leer 
             string content = sr.ReadLine(); //se ignora la primera linea reasignandolo luego
             content = sr.ReadLine();
-            while (content != null)
+            while (content != null) //mientras el archivo no termine
             {
                 string[] info = content.Split("    "); //separador por espacios 
                 string nombre = info[0];
                 int id = Convert.ToInt32(info[1]); //.ToInt32 para convertir de string a int
                 string email = info[2];
                 int edad = Convert.ToInt32(info[3]);
-                Invitado invitado = new Invitado(nombre, id, email, edad);
-                this.list_invitados.Add(invitado);
+                Invitado invitado = new Invitado(nombre, id, email, edad); //crear invitado de tipo clase Invitado
+                this.list_invitados.Add(invitado); //ingresar invitados a la lista
                 content = sr.ReadLine();
             }
             sr.Close();
@@ -40,5 +43,20 @@ using System.Linq.Expressions;
             }
             Console.ReadLine();
         }
+
+   
+    public void escritor (string ruta, string text)
+    {
+        string ruta = "C:\\Users\\DIANA\\Downloads\\Taller_herencia.txt";
+        hackerman hackerman = new hackerman();
+        string text = hackerman(hackerman);
+        File.WriteAllText(ruta, text);
+         
+
+
+
+
+
+    }
     }
 
